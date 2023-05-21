@@ -6,7 +6,7 @@ import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 
 import {COLORS} from '@values';
 import {ms} from '@values/platform';
-import {Touchable, Text, VectorIcons} from '@components/uikit';
+import {Touchable, Text, VectorIcons, View} from '@components/uikit';
 
 interface Props extends BottomTabBarProps {}
 
@@ -177,7 +177,7 @@ const CustomTabBar: React.FC<Props> = ({state, descriptors, navigation}) => {
         } else {
           iconComp = CURRENT_ROUTES.icons[index].inactiveIcon;
         }
-
+        console.log('options.tabBarBadge :>> ', options.tabBarBadge);
         return (
           <Touchable
             key={index.toString()}
@@ -198,6 +198,7 @@ const CustomTabBar: React.FC<Props> = ({state, descriptors, navigation}) => {
               ]}>
               {label}
             </Text>
+            {options?.tabBarBadge && <View style={styles.badge} />}
           </Touchable>
         );
       })}
@@ -219,6 +220,7 @@ const styles = StyleSheet.create({
   tabBar: {
     flex: 1,
     alignItems: 'center',
+    position: 'relative',
   },
   label: {
     fontWeight: '700',
@@ -230,5 +232,13 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     width: 24,
     height: 24,
+  },
+  badge: {
+    position: 'absolute',
+    right: 38,
+    width: 12,
+    height: 12,
+    borderRadius: 12,
+    backgroundColor: '#bd343c',
   },
 });

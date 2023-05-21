@@ -1,7 +1,16 @@
-import {Container} from '@components/uikit';
 import React from 'react';
 
+import Header from '@components/Header';
+import {Container} from '@components/uikit';
+import GradientBackgroundView from '@components/GradientBackgroundView';
+
 const FuncComponent: React.FC = () => {
-  return <Container></Container>;
+  return (
+    <Container>
+      <GradientBackgroundView>
+        <Header title="Coin" />
+      </GradientBackgroundView>
+    </Container>
+  );
 };
 export default FuncComponent;

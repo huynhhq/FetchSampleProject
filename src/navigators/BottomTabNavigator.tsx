@@ -38,6 +38,7 @@ const BottomTabNavigator = () => {
         options={{
           tabBarLabel: 'Job',
           headerShown: false,
+          tabBarBadge: 1,
         }}
       />
       <Tab.Screen

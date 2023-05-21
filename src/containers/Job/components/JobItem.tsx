@@ -19,7 +19,7 @@ const JobItem: React.FC<Props> = ({item}) => {
           </Text>
         </View>
         <View alignItems="flex-end">
-          <Text color="#686672" fontSize={15}>{`$${item.price.toFixed(
+          <Text color="#cfcdd9" fontSize={15}>{`$${item.price.toFixed(
             2,
           )}`}</Text>
           <View flexD="row" alignItems>

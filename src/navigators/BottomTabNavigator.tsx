@@ -4,7 +4,7 @@ import {BottomTabParamList} from 'root-stack-params';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import CustomTabBar from './CustomTabBar';
-import Home from '@containers/Home';
+import {HomePage, CoinPage, JobPage, MenuPage} from '@containers';
 
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -18,7 +18,7 @@ const BottomTabNavigator = () => {
       }}>
       <Tab.Screen
         name={'home'}
-        component={Home}
+        component={HomePage}
         options={{
           tabBarLabel: 'Home',
           headerShown: false,
@@ -26,7 +26,7 @@ const BottomTabNavigator = () => {
       />
       <Tab.Screen
         name={'coin'}
-        component={Home}
+        component={CoinPage}
         options={{
           tabBarLabel: 'Coin',
           headerShown: false,
@@ -34,7 +34,7 @@ const BottomTabNavigator = () => {
       />
       <Tab.Screen
         name={'job'}
-        component={Home}
+        component={JobPage}
         options={{
           tabBarLabel: 'Job',
           headerShown: false,
@@ -42,7 +42,7 @@ const BottomTabNavigator = () => {
       />
       <Tab.Screen
         name={'menu'}
-        component={Home}
+        component={MenuPage}
         options={{
           tabBarLabel: 'Menu',
           headerShown: false,

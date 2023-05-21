@@ -66,7 +66,7 @@ const CustomTabBar: React.FC<Props> = ({state, descriptors, navigation}) => {
             size={30}
             name="home"
             provider="Foundation"
-            color="blue"
+            color={COLORS.primaryBlue}
           />
         ),
         inactiveIcon: (
@@ -85,7 +85,7 @@ const CustomTabBar: React.FC<Props> = ({state, descriptors, navigation}) => {
             size={30}
             name="monetization-on"
             provider="MaterialIcons"
-            color="blue"
+            color={COLORS.primaryBlue}
           />
         ),
         inactiveIcon: (
@@ -104,7 +104,7 @@ const CustomTabBar: React.FC<Props> = ({state, descriptors, navigation}) => {
             size={30}
             name="directions-car"
             provider="MaterialIcons"
-            color="blue"
+            color={COLORS.primaryBlue}
           />
         ),
         inactiveIcon: (
@@ -123,7 +123,7 @@ const CustomTabBar: React.FC<Props> = ({state, descriptors, navigation}) => {
             size={30}
             name="menu"
             provider="MaterialIcons"
-            color="blue"
+            color={COLORS.primaryBlue}
           />
         ),
         inactiveIcon: (
@@ -193,7 +193,7 @@ const CustomTabBar: React.FC<Props> = ({state, descriptors, navigation}) => {
               style={[
                 styles.label,
                 {
-                  color: isFocused ? 'blue' : COLORS.neutral300,
+                  color: isFocused ? '#1d3dae' : COLORS.neutral300,
                 },
               ]}>
               {label}

@@ -3,6 +3,7 @@ export const COLORS = {
   primaryRed: '#ae1c22',
   textColor: '#000000',
   primaryBlur: '#d5d6d5',
+  primaryBlue: '#1d3dae',
   primaryYellow: '#a3aa00',
   blue: '#2481ce',
   borders: '#D9D9D9',

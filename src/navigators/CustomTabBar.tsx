@@ -177,7 +177,7 @@ const CustomTabBar: React.FC<Props> = ({state, descriptors, navigation}) => {
         } else {
           iconComp = CURRENT_ROUTES.icons[index].inactiveIcon;
         }
-        console.log('options.tabBarBadge :>> ', options.tabBarBadge);
+
         return (
           <Touchable
             key={index.toString()}

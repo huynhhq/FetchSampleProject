@@ -79,8 +79,13 @@ declare module 'custom-ui-kit' {
   }
 }
 declare module 'root-stack-params' {
+  import {JobDTO} from '@containers/Job/types';
+
   export type RootStackParamList = {
     bottomTabs: BottomTabParamList;
+    jobDescription: {
+      job: JobDTO;
+    };
   };
   export type BottomTabParamList = {
     home: undefined;

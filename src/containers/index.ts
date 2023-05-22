@@ -3,4 +3,6 @@ import JobPage from '@containers/Job';
 import MenuPage from '@containers/Menu';
 import CoinPage from '@containers/Coin';
 
-export {HomePage, JobPage, MenuPage, CoinPage};
+import JobDescription from '@containers/JobDescription';
+
+export {HomePage, JobPage, MenuPage, CoinPage, JobDescription};

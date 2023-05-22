@@ -4,6 +4,7 @@ import {Touchable, View, Text, VectorIcons, Divider} from '@components/uikit';
 import {JobDTO} from '../types';
 import styles from '../styles';
 import {COLORS} from '@values';
+import {goScreen} from '@helpers/navigation';
 
 interface Props {
   item: JobDTO;
@@ -11,7 +12,9 @@ interface Props {
 
 const JobItem: React.FC<Props> = ({item}) => {
   return (
-    <Touchable style={styles.jobItemContainer}>
+    <Touchable
+      style={styles.jobItemContainer}
+      onPress={() => goScreen('jobDescription')}>
       <View flexD="row">
         <View flex>
           <Text color="white" fontSize={15}>

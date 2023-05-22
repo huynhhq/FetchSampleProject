@@ -7,6 +7,7 @@ import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import {RootStackParamList} from 'root-stack-params';
 import BottomTabNavigator from './BottomTabNavigator';
 import {setTopLevelNavigator} from '@helpers/navigation';
+import {JobDescription} from '@containers';
 
 const RootStack = createStackNavigator<RootStackParamList>();
 
@@ -37,6 +38,7 @@ export const RootNavigator = () => {
             component={BottomTabNavigator}
             options={{headerShown: false}}
           />
+          <RootStack.Screen name="jobDescription" component={JobDescription} />
         </RootStack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

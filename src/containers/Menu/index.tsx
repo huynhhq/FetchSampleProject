@@ -6,7 +6,7 @@ import GradientBackgroundView from '@components/GradientBackgroundView';
 
 const FuncComponent: React.FC = () => {
   return (
-    <Container>
+    <Container safeAreaStyle={{backgroundColor: 'white'}}>
       <GradientBackgroundView>
         <Header title="Menu" />
       </GradientBackgroundView>

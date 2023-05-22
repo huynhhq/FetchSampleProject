@@ -65,7 +65,7 @@ const FuncComponent: React.FC = () => {
   );
 
   return (
-    <Container>
+    <Container safeAreaStyle={{backgroundColor: 'white'}}>
       <GradientBackgroundView>
         <Header title="Jobs" />
         <TabView

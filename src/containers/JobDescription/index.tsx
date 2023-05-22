@@ -1,4 +1,4 @@
-import React, {useCallback, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
 import styles from './styles';
 import {
@@ -8,8 +8,9 @@ import {
   Divider,
   VectorIcons,
   Touchable,
+  Button,
 } from '@components/uikit';
-import BottomSheet from '@components/BottomSheet';
+import CustomBottomSheet from '@components/BottomSheet';
 import images from '@assets';
 import {COLORS, DIMS} from '@values';
 import SlideButton from '@components/SlideButton/slideButton';
@@ -18,6 +19,8 @@ import MapViewDirections from 'react-native-maps-directions';
 import {Animated} from 'react-native';
 import {runOnJS} from 'react-native-reanimated';
 import MapHeader from './component/MapHeader';
+
+import BottomSheet from '@gorhom/bottom-sheet';
 
 const ASPECT_RATIO = DIMS.width / DIMS.height;
 
@@ -35,6 +38,14 @@ const MAP_HEIGHT = DIMS.height - BOTTOM_DEFAULT_HEIGHT;
 
 const FuncComponent: React.FC = () => {
   const map = useRef<MapView>(null);
+  const bottomSheetRef = useRef<BottomSheet>(null);
+  const snapPoints = useMemo(() => ['25%', '50%'], []);
+  const [isShow, setIsShow] = useState<boolean>(false);
+
+  useEffect(() => {
+    bottomSheetRef.current?.forceClose();
+  }, []);
+
   const [position, setPosition] = useState<'bottom' | 'middle' | 'top'>(
     'bottom',
   );
@@ -67,6 +78,10 @@ const FuncComponent: React.FC = () => {
     'worklet';
     runOnJS(handleOnChangeMap)(bottomSheetPosition, direction);
   };
+
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log('handleSheetChanges', index);
+  }, []);
 
   return (
     <View flex>
@@ -113,7 +128,7 @@ const FuncComponent: React.FC = () => {
             />
           </MapView>
         </Animated.View>
-        <BottomSheet defaultHeight={220} callBack={bottomSheetCallback}>
+        <CustomBottomSheet defaultHeight={220} callBack={bottomSheetCallback}>
           {position !== 'top' && (
             <View style={styles.btnFocusContainer}>
               <Touchable
@@ -218,7 +233,7 @@ const FuncComponent: React.FC = () => {
                 <SlideButton
                   height={56}
                   icon={<Image source={images.swipe} style={styles.icon} />}
-                  onReachedToEnd={() => {}}
+                  onReachedToEnd={() => setIsShow(true)}
                   reverseSlideEnabled={false}
                   autoReset={true}
                   animation={true}
@@ -226,7 +241,31 @@ const FuncComponent: React.FC = () => {
               </View>
             </View>
           </View>
-        </BottomSheet>
+        </CustomBottomSheet>
+        {isShow && (
+          <BottomSheet
+            enablePanDownToClose
+            ref={bottomSheetRef}
+            index={1}
+            snapPoints={snapPoints}
+            onChange={handleSheetChanges}>
+            <View style={styles.contentContainer}>
+              <View flex>
+                <Text
+                  textCenter
+                  color="#101018"
+                  fontSize={30}
+                  style={{fontWeight: '600'}}>
+                  You have not arrived back Expo
+                </Text>
+                <Text textCenter color="#8f8f90">
+                  Please report back at Foyer 1 to complete the job
+                </Text>
+              </View>
+              <Button title="Ok" width={DIMS.width - 40} height={60} />
+            </View>
+          </BottomSheet>
+        )}
       </View>
     </View>
   );

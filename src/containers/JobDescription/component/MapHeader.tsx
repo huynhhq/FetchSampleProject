@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 
 import {DIMS, ms} from '@values';
 import {Touchable, View, Text} from '@components/uikit';
@@ -14,7 +14,7 @@ interface Props {
 const MapHeader: React.FC<Props> = ({title, price, hide = false}) => {
   if (hide) {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Touchable style={styles.btnBack} onPress={() => goBack()}>
           <VectorIcons name="chevron-left" provider="FontAwesome" size={20} />
         </Touchable>
@@ -32,15 +32,15 @@ const MapHeader: React.FC<Props> = ({title, price, hide = false}) => {
             />
           </View>
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
   return (
-    <View style={styles.transparentContainer}>
-      <Touchable style={styles.btnTransparentBack}>
+    <SafeAreaView style={styles.transparentContainer}>
+      <Touchable style={styles.btnTransparentBack} onPress={() => goBack()}>
         <VectorIcons name="chevron-left" provider="FontAwesome" size={20} />
       </Touchable>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -61,14 +61,14 @@ const styles = StyleSheet.create({
   transparentContainer: {
     zIndex: 1,
     position: 'absolute',
-    top: 0,
+    top: 30,
     height: 100,
     width: DIMS.width,
   },
   btnBack: {
     position: 'absolute',
     left: 20,
-    top: 20,
+    top: 50,
   },
   title: {
     fontSize: ms(15),

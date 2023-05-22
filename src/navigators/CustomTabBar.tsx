@@ -10,7 +10,7 @@ import {Touchable, Text, VectorIcons, View} from '@components/uikit';
 
 interface Props extends BottomTabBarProps {}
 
-const BOTTOM_MENU_HEIGHT = ms(52);
+const BOTTOM_MENU_HEIGHT = ms(70);
 
 const CustomTabBar: React.FC<Props> = ({state, descriptors, navigation}) => {
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
@@ -211,11 +211,11 @@ export default CustomTabBar;
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'center',
     backgroundColor: COLORS.white,
     borderTopWidth: 1,
     borderTopColor: COLORS.neutral25,
-    paddingTop: 10,
+    justifyContent: 'center',
+    paddingTop: 10
   },
   tabBar: {
     flex: 1,

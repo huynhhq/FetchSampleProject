@@ -15,7 +15,7 @@ import {DIMS} from '@values';
 const MAX_TRANSLATE_Y = -DIMS.height;
 const MIDDLE_TRANSLATE_Y = -DIMS.height / 3.6;
 const MIDDLE_HOLD_Y = 50;
-const BORDER_HEIGHT = 10;
+const BORDER_HEIGHT = 25;
 
 interface BottomSheetProps extends PropsWithChildren {
   children?: React.ReactNode;

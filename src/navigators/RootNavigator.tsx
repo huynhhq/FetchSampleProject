@@ -30,7 +30,7 @@ export const RootNavigator = () => {
         <RootStack.Navigator
           screenOptions={{
             headerShown: false,
-            presentation: 'modal',
+            // presentation: 'modal',
           }}
           initialRouteName={'bottomTabs'}>
           <RootStack.Screen

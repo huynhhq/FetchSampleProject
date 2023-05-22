@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   mapContainer: {
     ...StyleSheet.absoluteFillObject,
     height: DIMS.height - 220,
-    width: 400,
+    width: DIMS.width,
   },
   button: {
     height: 50,
@@ -55,6 +55,12 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 100,
     backgroundColor: 'white',
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingBottom: 20
   },
 });
 
